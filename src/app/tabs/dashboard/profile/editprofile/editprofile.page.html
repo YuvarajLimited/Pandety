@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button  defaultHref="/"></ion-back-button>
+      <ion-title>Edit Your Profile</ion-title>
+    </ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-grid>
+      <form [formGroup]="editprofile" >
+        <ion-row class="row">
+         <ion-col size="12">
+            <ion-label class="control-label">First Name: <span class="error">*</span></ion-label><br>
+            <ion-input type="name" class="primary-input" formControlName="firstname"></ion-input>
+            <div class="error-messages">
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <ion-label class="control-label">Last Name: <span class="error">*</span></ion-label><br>
+            <ion-input type="name" class="primary-input" formControlName="lastname"></ion-input>
+            <div class="error-messages">
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <ion-label class="control-label">Email: <span class="error">*</span></ion-label><br>
+            <ion-input type="email" class="primary-input" formControlName="email"></ion-input>
+            <div class="error-messages">
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <ion-label class="control-label">Mobile NO: <span class="error">*</span></ion-label><br>
+            <ion-input type="number" class="primary-input" formControlName="mobile_num"></ion-input>
+            <div class="error-messages">
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <ion-label class="control-label">Age: <span class="error">*</span></ion-label><br>
+            <ion-input type="number" class="primary-input" formControlName="age"></ion-input>
+            <div class="error-messages">
+            </div>
+          </ion-col>
+          <ion-col size="12">
+            <ion-label class="control-label">Date OF Birth: <span class="error">*</span></ion-label><br>
+            <ion-input type="date" class="primary-input" formControlName="dob"></ion-input>
+            <div class="error-messages">
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" (click)="submitForm()" [disabled]="" color="vibrant">Submit</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button expand="block" (click)="resetForm()" color="medium">cancel</ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+    </ion-grid>
+  </ion-card>
+</ion-content>

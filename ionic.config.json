@@ -1,0 +1,7 @@
+{
+  "name": "Pandety",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

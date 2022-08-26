@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Pandety</string>
+    <string name="title_activity_main">Pandety</string>
+    <string name="package_name">com.jsmobiledev.jorge</string>
+    <string name="custom_url_scheme">com.jsmobiledev.jorge</string>
+</resources>

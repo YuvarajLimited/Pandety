@@ -1,0 +1,73 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+// global app styles
+@import "./app/app.scss";
+ 
+.ion-color-white {
+    --ion-color-base: var(--ion-color-white);
+    --ion-color-base-rgb: var(--ion-color-white-rgb);
+    --ion-color-contrast: var(--ion-color-white-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-white-contrast-rgb);
+    --ion-color-shade: var(--ion-color-white-shade);
+    --ion-color-tint: var(--ion-color-white-tint);
+  }
+  .ion-color-vibrant {
+    --ion-color-base: var(--ion-color-vibrant, #1A4B9C) !important;
+    --ion-color-base-rgb: var(--ion-color-vibrant-rgb, 6, 52, 154) !important;
+    --ion-color-contrast: var(--ion-color-vibrant-contrast, #fff) !important;
+    --ion-color-contrast-rgb: var(--ion-color-vibrant-contrast-rgb, 255, 255, 255) !important;
+    --ion-color-shade: var(--ion-color-vibrant-shade, #093FB3) !important;
+    --ion-color-tint: var(--ion-color-vibrant-tint, #2553B8) !important;
+  }
+  .primary-input {
+    background: aliceblue;
+    --padding-start: 10px !important;
+    color: #999999;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  .login-modal {
+    --backdrop-opacity: 1;
+    backdrop-filter: blur(3px);
+    &::part(backdrop) {
+        background-color: #000;
+    }
+    &::part(handle) {
+        background: var(--ion-color-primary);
+        width: 150px;
+        height: 6px;
+    }
+    &::part(content) {
+        border-radius: 20px;
+        height: 50%;
+        box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 32%);
+    }
+  }
+  .transparent-modal .modal-wrapper {
+    --background: rgba(44, 39, 45, 0.7);
+}

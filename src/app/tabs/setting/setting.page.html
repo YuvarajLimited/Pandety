@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+      <ion-title>Settings</ion-title>
+    </ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+<!-- <ion-icon name="call-outline">+91 99622 90830
+                               +91 44 489 3746</ion-icon>
+<ion-icon name="mail-outline">info@gsautomation.in</ion-icon>
+<ion-icon name="send-outline"></ion-icon>
+<button ion-icon name="call-outline"   color="dark">About Us</button> -->
+
+
+<head>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+            <div class="circles"></div>
+            <div class="details-container">
+                <div class="avatar">
+                    <img src="https://i.suar.me/l3zYA/l" class="img-fluid" alt="">
+                </div>
+                <div class="about">
+                    <div class="name">
+                        <p>
+                            Pandety
+                        </p>
+                        <h1></h1>
+                    </div>
+                    <div class="about-content">
+                        <p></p>
+                        <ion-button expand="block" [routerLink]="['/tabs/setting/termsandconditions']" routerLinkActive="router-link-active" color="tertiary">
+                          Terms And Conditions</ion-button>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="skills-container">
+              <ion-button expand="block" [routerLink]="['/tabs/setting/feedback']" routerLinkActive="router-link-active" color="tertiary">
+                FeedBack</ion-button>
+                <ion-button expand="block" [routerLink]="['/tabs/setting/helps']" routerLinkActive="router-link-active" color="tertiary">
+                  Help</ion-button>
+                  <ion-button expand="block" [routerLink]="['/tabs/setting/aboutus']" routerLinkActive="router-link-active" color="tertiary">
+                    About Us</ion-button>
+            </div>
+        </div> 
+  
+</body>
