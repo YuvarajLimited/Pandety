@@ -1,4 +1,4 @@
-$yellow: #fddb33;
+$yellow: #3384fd;
 $black: #222;
 $white: #fff;
 .img-fluid {
@@ -42,7 +42,7 @@ body {
             bottom: -15%;
             width: 200px;
             height: 200px;
-            background: #fddb33;
+            background:  #3384fd;
             border-radius: 50%;
         }
 
@@ -155,31 +155,3 @@ body {
         }
     }
 }
-@keyframes slideInFromLeft {
-    0% {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  @keyframes slideUpFromBottom {
-    0% {
-      transform: translateY(70%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
