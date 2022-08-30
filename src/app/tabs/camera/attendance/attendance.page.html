@@ -1,9 +1,63 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>attendance</ion-title>
-  </ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs"></ion-back-button>
+      <ion-title>Attendance</ion-title>
+    </ion-buttons>
+</ion-toolbar>
 </ion-header>
 
-<ion-content>
-
-</ion-content>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="circles"></div>
+    <div class="details-container">
+      <div class="avatar">
+        <img src="https://i.suar.me/l3zYA/l" class="img-fluid" alt="">
+      </div>
+    </div>
+  </div> 
+</body>
+  
+<ion-card>
+  <ion-grid>
+    <form [formGroup]="attendance" pass>
+      <ion-row class="row">
+        <ion-col size="12">
+          <ion-label class="control-label">Employee Name: <span class="error">*</span></ion-label><br>
+          <ion-input type="name" class="primary-input" formControlName="empname"></ion-input>
+          <div class="error-messages">
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row">
+        <ion-col size="12">
+          <ion-label class="control-label">Employee Code: <span class="error">*</span></ion-label><br>
+          <ion-input type="password" class="primary-input" formControlName="empcode"></ion-input>
+          <div class="error-messages">
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row">
+        <ion-col size="12">
+          <ion-label class="control-label">Location: <span class="error">*</span></ion-label><br>
+          <ion-input type="location" class="primary-input" formControlName="emplocation"></ion-input>
+          <div class="error-messages">
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" (click)="submitForm()" [disabled]="" color="vibrant">Submit</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" (click)="resetForm()" color="danger">cancel</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-card>
+  

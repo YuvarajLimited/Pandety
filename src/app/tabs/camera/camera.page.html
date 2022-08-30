@@ -13,6 +13,8 @@
       <ion-icon name="camera"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+  <ion-button expand="block" [routerLink]="['/tabs/camera/attendance']" routerLinkActive="router-link-active" color="tertiary">
+    Click For Attendance</ion-button>
   <ion-grid>
      <ion-row>
        <ion-col size="6" *ngFor="let photo of photoService.photos; index as position">
@@ -21,4 +23,3 @@
      </ion-row>
   </ion-grid>
 </ion-content>
-

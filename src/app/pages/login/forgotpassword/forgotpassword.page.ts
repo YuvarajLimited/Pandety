@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Route, Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
 import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
@@ -16,8 +14,7 @@ export class ForgotpasswordPage implements OnInit {
 
 
   constructor(private fb: FormBuilder,
-              private toast: ToastService,
-              private router: Router) { }
+              private toast: ToastService) { }
 
   ngOnInit() {
     this.forgotpassword = this.fb.group({
@@ -35,17 +32,17 @@ export class ForgotpasswordPage implements OnInit {
         res => {
           if(res == true)
           {
-            this.toast.successToast('Permit Raised Successfully');
+            this.toast.successToast('Successfully');
             this.isSubmitted = false;
             this.forgotpassword.reset();
-            this.router.navigate(['/activity/permits']).then(
+            (
               () => {
                 window.location.reload;
               }
             );
           }
           else{
-            this.toast.dangerToast('Permit Failed Please try again');
+            this.toast.dangerToast('Failed Please try again');
           }
         }
       );
@@ -54,4 +51,5 @@ export class ForgotpasswordPage implements OnInit {
   resetForm(){
     this.forgotpassword.reset()
   }
+  
 }

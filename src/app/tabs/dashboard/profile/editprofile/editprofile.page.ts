@@ -49,17 +49,17 @@ export class EditprofilePage implements OnInit {
   res => {
   if(res == true)
   {
-    this.toast.successToast('Permit Raised Successfully');
+    this.toast.successToast('Successfully');
     this.isSubmitted = false;
     this.editprofile.reset();
-    this.router.navigate(['/activity/permits']).then(
+  (
      () => {
         window.location.reload;
       }
       );
     }
     else{
-      this.toast.dangerToast('Permit Failed Please try again');
+      this.toast.dangerToast('Failed Please try again');
     }
   }
   );

@@ -1,7 +1,7 @@
 <ion-app>
   <ion-menu side="start" menuId="first" contentId="content1">
       <ion-header>
-        <ion-toolbar color="primary">
+        <ion-toolbar color="dark">
           <ion-title>ᴡᴇʟᴄᴏᴍᴇ</ion-title>
         </ion-toolbar>
       </ion-header>
@@ -9,7 +9,7 @@
         <ion-list *ngFor="let pages of navigate">
         <ion-menu-toggle auto-hide="true">
           <ion-item [routerLink]="pages.url">
-              <ion-icon [name]="pages.icon" slot="start"></ion-icon>
+              <ion-icon name="grid" [name]="pages.icon" slot="start"></ion-icon>
                  {{pages.title}} 
           </ion-item>
         </ion-menu-toggle>
