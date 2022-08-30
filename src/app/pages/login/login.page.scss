@@ -1,22 +1,69 @@
-ion-content {
-    --padding-top: 40%;
-    --padding-start: 10%;
-    --padding-end: 10%;
-    --background: url('https://preview.redd.it/v5rmr70vck751.jpg?auto=webp&s=176841057a539c182d88fed926e7f3c66cdf06be') 0 0/100% 100% no-repeat;
-}
+// ion-content {
+//     --padding-top: 45%;
+//     --padding-start: 10%;
+//     --padding-end: 10%;
+//     --background: url('https://www.templateupdates.com/wp-content/uploads/2018/03/Blurred-Background-Design-Free-Vector.jpg') 0 0/100% 100% no-repeat;
+// }
  
-.input-group {
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 15px;
-}
+// .input-group {
+//     background: #fff;
+//     border-radius: 10px;
+//     overflow: hidden;
+//     margin-bottom: 15px;
+// }
  
 .errors {
-    font-size: small;
+    font-size: auto;
     color: #fff;
     background: var(--ion-color-danger);
     padding-left: 15px;
     padding-top: 5px;
     padding-bottom: 5px;
 }
+.grid1 {
+  height: 100%;
+  padding: 0px;
+}
+
+.contaier-login {
+  width: 90%;
+  padding: 10px;
+  background: #FFFFFF;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
+}
+
+
+.row1 {
+  height: 50%;
+  background: -moz-linear-gradient(45deg, rgba(61, 66, 150, 1) 0%, rgba(84, 74, 171, 0.8) 100%);
+  background: -webkit-linear-gradient(45deg, rgba(61, 66, 150, 1) 0%, rgba(84, 74, 171, 0.8) 100%);
+  background: linear-gradient(45deg, rgba(61, 66, 150, 1) 0%, rgba(84, 74, 171, 0.8) 100%);
+}
+
+.row2 {
+  height: 50%;
+}
+
+ion-icon {
+  margin-right: 15px;
+}
+
+ion-button {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+ion-slide {
+  width: 100%;
+  height: 100%;
+  position: absolute !important;
+  top: 0px !important;
+}
+.img-container {
+  display: flex;
+  justify-content: center;
+ }
+ 
