@@ -3,20 +3,12 @@
       <ion-buttons slot="start">
         <ion-menu-button autoHide="false"></ion-menu-button>
       </ion-buttons>
+      <ion-icon slot="start"></ion-icon>
+      <ion-toggle slot="end" [ngModel]="darkMode" (ionChange)="cambio()"></ion-toggle>
     <ion-title>
-      ᴅᴀꜱʜʙᴏᴀʀᴅ
     </ion-title>
   </ion-toolbar>
 </ion-header>
- <!-- <ion-content>
-  <div style="margin-top: 50px;">
-  <ion-slides [options]="slideOpts">
-    <ion-slide>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-AdK5P4-0qqYIntwtEzIiv2zay8Ft8_5MHA&usqp=CAU" alt=”slide-1” height="10px"/>
-    </ion-slide>
-  </ion-slides>
-  </div>
-</ion-content>   -->
  
 <ion-content>
   <div class="ion-padding">
@@ -31,7 +23,7 @@
       </ion-col>
       <ion-col size="8">
         <ion-row>Back End Dev</ion-row>
-        <ion-row class="item-info"> {{ price }} </ion-row>
+        <ion-row class="item-info"> {{ profile }} </ion-row>
       </ion-col>
       <ion-col size="2">
         <div class="ion-text-right">
@@ -53,7 +45,7 @@
       </ion-col>
       <ion-col size="8">
         <ion-row>Front End Dev</ion-row>
-        <ion-row class="item-info"> {{ price }} </ion-row>
+        <ion-row class="item-info"> {{ profile }} </ion-row>
       </ion-col>
       <ion-col size="2">
         <div class="ion-text-right">
@@ -75,7 +67,7 @@
       </ion-col>
       <ion-col size="8">
         <ion-row>Front End Dev</ion-row>
-        <ion-row class="item-info"> {{ price }} </ion-row>
+        <ion-row class="item-info"> {{ profile }} </ion-row>
       </ion-col>
       <ion-col size="2">
         <div class="ion-text-right">

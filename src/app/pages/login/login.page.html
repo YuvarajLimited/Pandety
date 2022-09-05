@@ -50,6 +50,10 @@
                       <ion-icon name="person-sharp" class="icon-login"></ion-icon>
                       <ion-input type="email" placeholder="Email" formControlName="login_id"></ion-input>
                     </ion-item>
+                      <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+                        <span *ngIf="password.errors?.required">Login Id is required</span>
+                        <span *ngIf="password.errors?.minlength">Login Id needs to be 6 characters</span>
+                      </div>
                     <br/>
                     <ion-item>
                       <ion-icon name="lock-closed-sharp"  class="icon-login"></ion-icon>

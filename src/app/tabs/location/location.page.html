@@ -1,49 +1,48 @@
-<!-- <ion-card>
-  <ion-card-header>
-    <ion-card-title>Coordinates</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    <ion-item>Latitude: {{ latitude }}</ion-item>
-    <ion-item>Longitude: {{ longitude }}</ion-item>
-  </ion-card-content>
-</ion-card> -->
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button  defaultHref="/"></ion-back-button>
-      <ion-title>Get Location</ion-title>
+      <ion-back-button defaultHref="/"></ion-back-button>
+      <ion-title>Location</ion-title>
     </ion-buttons>
-  </ion-toolbar>
+</ion-toolbar>
 </ion-header>
-
-<ion-content class="ion-padding">
-  <ion-button size="small" (click)="requestPermissions()">
-    Geolocation Permissions
-  </ion-button>
-
+ 
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-card>
-    <ion-card-header>
-      <ion-button size="small" (click)="getCurrentCoordinate()">
-        Current Coordinate
-      </ion-button>
-    </ion-card-header>
-    <ion-card-content>
-      Lat: {{coordinate?.latitude }}
-      Long:{{ coordinate?.longitude }}
-    </ion-card-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" class="ion-text-center">
+        Latitue
+      </ion-col>
+      <ion-col>
+        <ion-badge class="ion-text-wrap" color="medium">{{latitude}}</ion-badge>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4" class="ion-text-center">
+        longitude
+      </ion-col>
+      <ion-col>
+        <ion-badge class="ion-text-wrap" color="medium">{{longitude}}</ion-badge>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4" class="ion-text-center" color="medium">
+        Accuracy
+      </ion-col>
+      <ion-col>
+        <ion-badge class="ion-text-wrap" color="medium">{{accuracy}}</ion-badge>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4" class="ion-text-center">
+        Address
+      </ion-col>
+      <ion-col>
+        <ion-badge class="ion-text-wrap" color="medium">{{address}}</ion-badge>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-button (click)="getGeolocation()" color="success" expand="full">Get Location</ion-button>
   </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      <ion-button size="small" (click)="watchPosition()">
-        Watch Position
-      </ion-button>
-    </ion-card-header>
-    <ion-card-content>
-      Lat: {{watchCoordinate?.latitude }}
-      Long: {{ watchCoordinate?.longitude }}
-    </ion-card-content>
-  </ion-card>
-
-  <ion-button size="small" (click)="clearWatch()">Clear Watch</ion-button>
 </ion-content>

@@ -1,31 +1,23 @@
-import { Component,ViewChild, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { IonSlides } from '@ionic/angular';
-import { AuthenticationService } from 'src/app/services/authentication.service';
-
+import { Component,OnInit } from '@angular/core';
+ 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.page.html',
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage implements OnInit {
-  price: any;
-  slideOpts = {
-    slidesPerView: 1.5,
-    spaceBetween: 5,
-    speed: 400,
-    loop: true,
-    centeredSlides: true,
-    autoplay: {
-      delay: 2000
-    },
-}
- constructor(private router: Router, private authService: AuthenticationService) {}
+  profile: any;
+  darkMode: boolean = true; 
  
- async logout() {
-  await this.authService.logout();
-  this.router.navigateByUrl('/', { replaceUrl: true });
-}
+ constructor() {
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+  this.darkMode = prefersDark.matches;
+ }
+
+ cambio() {
+  this.darkMode = !this.darkMode;
+  document.body.classList.toggle('dark');
+ }
   ngOnInit() {
   }
 }

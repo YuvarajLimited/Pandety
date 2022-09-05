@@ -1,6 +1,6 @@
-import { Component, NgZone, OnInit } from '@angular/core';
-import { Capacitor } from '@capacitor/core';
-import { Geolocation} from '@capacitor/geolocation';
+import { Component,  OnInit } from '@angular/core';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder, NativeGeocoderOptions, NativeGeocoderResult } from '@awesome-cordova-plugins/native-geocoder/ngx';
 
 @Component({
   selector: 'app-location',
@@ -8,70 +8,60 @@ import { Geolocation} from '@capacitor/geolocation';
   styleUrls: ['./location.page.scss'],
 })
 export class LocationPage implements OnInit {
-  // latitude: number;
-  // longitude: number;
+  address: string;
+  latitude: number;
+  longitude: number;
+  accuracy: number;
 
-  // constructor() {
-  //   this.getLocation();
-  // }
-  // async getLocation() {
-  //   const position = await Geolocation.getCurrentPosition();
-  //   this.latitude = position.coords.latitude;
-  //   this.longitude = position.coords.longitude;
-  //    (
-  //     (err) => {
-  //       console.error('Could not read current location');
-  //     });
-  //   }
-  coordinate: any;
-  watchCoordinate: any;
-  watchId: any;
-
-  constructor(private zone: NgZone) { }
-
-  async requestPermissions() {
-    const permResult = await Geolocation.requestPermissions();
-    console.log('Perm request result: ', permResult);
+  geoencoderOptions: NativeGeocoderOptions = {
+    useLocale: true,
+    maxResults: 1
+  };
+  constructor(
+    private geolocation: Geolocation,
+    private nativeGeocoder: NativeGeocoder
+  ) {
   }
+  getGeolocation() {
+    this.geolocation.getCurrentPosition().then((resp) => {
 
-  getCurrentCoordinate() {
-    if (!Capacitor.isPluginAvailable('Geolocation')) {
-      console.log('Plugin geolocation not available');
-      return;
-    }
-    Geolocation.getCurrentPosition().then(data => {
-      this.coordinate = {
-        latitude: data.coords.latitude,
-        longitude: data.coords.longitude,
-        accuracy: data.coords.accuracy
-      };
-    }).catch(err => {
-      console.error(err);
+      this.latitude = resp.coords.latitude;
+      this.longitude = resp.coords.longitude;
+      this.accuracy = resp.coords.accuracy;
+
+      this.getGeoencoder(resp.coords.latitude, resp.coords.longitude);
+
+    }).catch((error) => {
+      alert('Error getting location' + JSON.stringify(error));
     });
   }
-
-  watchPosition() {
-    try {
-      this.watchId = Geolocation.watchPosition({}, (position, err) => {
-        console.log('Watch', position);
-        this.zone.run(() => {
-          this.watchCoordinate = {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-          };
-        });
+  getGeoencoder(latitude, longitude) {
+    this.nativeGeocoder.reverseGeocode(latitude, longitude, this.geoencoderOptions)
+      .then((result: NativeGeocoderResult[]) => {
+        this.address = this.generateAddress(result[0]);
+      })
+      .catch((error: any) => {
+        alert('Error getting location' + JSON.stringify(error));
       });
-    } catch (e) {
-      console.error(e);
-    }
   }
+  generateAddress(addressObj) {
+    let obj = [];
+    let address = "";
+    for (let key in addressObj) {
+      obj.push(addressObj[key]);
+    }
+    obj.reverse();
+    for (let val in obj) {
+      if (obj[val].length)
+        address += obj[val] + ', ';
+    }
+    return address.slice(0, -2);
+  }
+  ngOnInit() {
+  }
+}
 
-  clearWatch() {
-    if (this.watchId != null) {
-      Geolocation.clearWatch({ id: this.watchId });
-    }
-  }
-    ngOnInit() {
-    }
-  }
+ 
+
+ 
     
