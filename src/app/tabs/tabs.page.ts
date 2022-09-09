@@ -65,7 +65,22 @@ export class TabsPage {
         title : "Settings",
         url   : "/tabs/setting",
         icon  : "settings-outline"
+      },
+      {
+        title : "Helps",
+        url   : "/tabs/setting/helps",
+        icon  : "help-circle-outline"
+      },
+      {
+        title : "Feedback",
+        url   : "/tabs/setting/feedback",
+        icon  : "cafe-outline"
       }
+      // {
+      //   title : "Terms & Conditions",
+      //   url   : "/tabs/setting/termsandconditions",
+      //   icon  : "ribbon-outline"
+      // }
     ];
  
   }

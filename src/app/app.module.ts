@@ -5,13 +5,12 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ImagePicker } from '@awesome-cordova-plugins/image-picker/ngx';
 import { Platform } from '@ionic/angular';
 import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
 import { SplashScreen } from '@awesome-cordova-plugins/splash-screen/ngx';
 import { NativeGeocoder } from '@awesome-cordova-plugins/native-geocoder/ngx';
-import { Geolocation } from '@ionic-native/geolocation/ngx'
- 
+import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -21,7 +20,6 @@ import { Geolocation } from '@ionic-native/geolocation/ngx'
     HttpClientModule
   ],
   providers: [
-    ImagePicker,
     NativeGeocoder,
     Geolocation,
     Platform,

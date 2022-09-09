@@ -8,13 +8,14 @@ import { Component,OnInit } from '@angular/core';
 export class DashboardPage implements OnInit {
   profile: any;
   darkMode: boolean = true; 
+  cart: any;
  
  constructor() {
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
   this.darkMode = prefersDark.matches;
  }
 
- cambio() {
+ mode() {
   this.darkMode = !this.darkMode;
   document.body.classList.toggle('dark');
  }

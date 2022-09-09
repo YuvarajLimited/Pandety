@@ -2,14 +2,18 @@ import { Injectable } from '@angular/core';
 import { Camera, CameraResultType, CameraSource, Photo} from '@capacitor/camera';
 import { Filesystem, Directory } from '@capacitor/filesystem';
 import { Storage } from '@capacitor/storage';
+import { ActionSheetController, Platform } from '@ionic/angular';
+
 @Injectable({
   providedIn: 'root'
 })
 export class PhotoService {
 
-  public photos: UserPhoto[] = [];
+  public photos: UserPhoto[] = []
   private PHOTO_STORAGE: string = 'photo';
-  constructor() { }
+  constructor(private Actionsheet : ActionSheetController) { 
+    this.deletePicture;
+   }
   
   private async savePicture(photo: Photo){
     const base64Data = await this.readAsBase64(photo);
@@ -69,8 +73,23 @@ export class PhotoService {
        photo.webviewPath = 'data:image/jpeg;base64, ${readFile.data}';
     }
   }
+  public async deletePicture(photo: UserPhoto, position: number) {
+     this.photos.splice(position, 1);
+  
+    //   Preferences.set({
+    //   key: this.PHOTO_STORAGE,
+    //   value: JSON.stringify(this.photos)
+    // });
+  
+     const filename = photo.filepath
+                        .substr(photo.filepath.lastIndexOf('/') + 1);
+  
+    await Filesystem.deleteFile({
+      path: filename,
+      directory: Directory.Data
+    });
+  }
 }
-
 export interface UserPhoto {
   filepath: string;
   webviewPath: string;
