@@ -1,6 +1,7 @@
 import { Component,  OnInit } from '@angular/core';
-import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 import { NativeGeocoder, NativeGeocoderOptions, NativeGeocoderResult } from '@awesome-cordova-plugins/native-geocoder/ngx';
+import { LoaderService } from 'src/app/services/loader.service';
 
 @Component({
   selector: 'app-location',
@@ -19,9 +20,13 @@ export class LocationPage implements OnInit {
   };
   constructor(
     private geolocation: Geolocation,
-    private nativeGeocoder: NativeGeocoder
-  ) {
-  }
+    private nativeGeocoder: NativeGeocoder,
+    public loaderservice: LoaderService
+    ) { }
+    
+    ngOnInit(): void {
+      this.loaderservice.showLoader();
+    }
   getGeolocation() {
     this.geolocation.getCurrentPosition().then((resp) => {
 
@@ -35,7 +40,7 @@ export class LocationPage implements OnInit {
       alert('Error getting location' + JSON.stringify(error));
     });
   }
-  getGeoencoder(latitude, longitude) {
+  getGeoencoder(latitude: number, longitude: number) {
     this.nativeGeocoder.reverseGeocode(latitude, longitude, this.geoencoderOptions)
       .then((result: NativeGeocoderResult[]) => {
         this.address = this.generateAddress(result[0]);
@@ -44,7 +49,7 @@ export class LocationPage implements OnInit {
         alert('Error getting location' + JSON.stringify(error));
       });
   }
-  generateAddress(addressObj) {
+  generateAddress(addressObj: NativeGeocoderResult) {
     let obj = [];
     let address = "";
     for (let key in addressObj) {
@@ -57,11 +62,4 @@ export class LocationPage implements OnInit {
     }
     return address.slice(0, -2);
   }
-  ngOnInit() {
-  }
 }
-
- 
-
- 
-    

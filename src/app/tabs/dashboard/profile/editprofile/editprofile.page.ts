@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoaderService } from 'src/app/services/loader.service';
 import { ToastService } from 'src/app/services/toast.service';
  
 @Component({
@@ -15,9 +16,11 @@ export class EditprofilePage implements OnInit {
   
     constructor(private fb: FormBuilder,
       private toast: ToastService,
-      private router: Router) { }
+      private router: Router,
+      public loaderservice: LoaderService) { }
   
   ngOnInit() {
+  this.loaderservice.showLoader();
   this.editprofile = this.fb.group({
     firstname: ['', [Validators.required]],
     lastname: ['', [Validators.required]],

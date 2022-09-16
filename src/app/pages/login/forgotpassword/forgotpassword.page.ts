@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LoaderService } from 'src/app/services/loader.service';
 import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
@@ -14,9 +15,11 @@ export class ForgotpasswordPage implements OnInit {
 
 
   constructor(private fb: FormBuilder,
-              private toast: ToastService) { }
+              private toast: ToastService,
+              public loaderservice: LoaderService) { }
 
   ngOnInit() {
+    this.loaderservice.showLoader();
     this.forgotpassword = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(6)]]
     });

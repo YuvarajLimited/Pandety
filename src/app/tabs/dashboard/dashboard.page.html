@@ -4,19 +4,10 @@
         <ion-menu-button autoHide="false"></ion-menu-button>
       </ion-buttons>
       <img src="../../../assets/home/gs-logo.jpg" height="40" width="40">
-       <!-- <ion-title class="titleicon" style="display:inline-block">Dashboard</ion-title> -->
-  <ion-title>
-  </ion-title>
-</ion-toolbar>
-</ion-header>
-
-<ion-item lines="full">
-  <ion-icon slot="start" name="moon"></ion-icon>
-  <ion-label>
-    Toggle Dark Theme
-  </ion-label>
-  <ion-toggle slot="end" [ngModel]="darkMode" (ionChange)="mode()"></ion-toggle>
-</ion-item>
+        <ion-title>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
 
 <ion-content>
   <div class="ion-padding">
@@ -86,5 +77,6 @@
       </ion-card-content>
     </ion-card>
   </div>
+  <!-- <ion-button expand="block" [routerLink]="['/tabs/dashboard/pushnotfication']" routerLinkActive="router-link-active" color="tertiary">
+    Notification</ion-button> -->
 </ion-content>
-                                                

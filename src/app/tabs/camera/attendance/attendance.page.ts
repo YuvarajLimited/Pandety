@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { LoaderService } from 'src/app/services/loader.service';
 import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
@@ -12,9 +13,10 @@ export class AttendancePage implements OnInit {
   isSubmitted = false;
   modules: any[];
 
-  constructor(private fb: FormBuilder, private toast: ToastService) { }
+  constructor(private fb: FormBuilder, private toast: ToastService,public loaderservice: LoaderService) { }
 
   ngOnInit() {
+    this.loaderservice.showLoader();
     this.attendance = this.fb.group({
       empname: ['', [Validators.required, Validators.minLength(6)]],
       empcode: ['', [Validators.required, Validators.minLength(6)]],

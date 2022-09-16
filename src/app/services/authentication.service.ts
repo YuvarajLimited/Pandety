@@ -3,9 +3,7 @@ import { map, tap, switchMap } from 'rxjs/operators';
 import { BehaviorSubject, from, Observable, Subject } from 'rxjs';
 import { Storage } from '@capacitor/storage';
 import { HttpClient } from '@angular/common/http';
-import { ApiConstants } from '../config/api.constants';
- 
- 
+import { ApiConstants } from '../config/api.constants'; 
 const TOKEN_KEY = 'my-token';
  
 @Injectable({

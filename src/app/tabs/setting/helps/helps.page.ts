@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoaderService } from 'src/app/services/loader.service';
 
 @Component({
   selector: 'app-helps',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelpsPage implements OnInit {
 
-  constructor() { }
+  constructor(public loaderservice: LoaderService) { }
 
   ngOnInit() {
+    this.loaderservice.showLoader();
   }
 
 }

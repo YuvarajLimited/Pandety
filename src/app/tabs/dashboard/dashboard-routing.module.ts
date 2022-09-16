@@ -8,6 +8,10 @@ const routes: Routes = [
     path: '',
     component: DashboardPage
   },
+  {
+    path: 'pushnotfication',
+    loadChildren: () => import('./pushnotfication/pushnotfication.module').then( m => m.PushnotficationPageModule)
+  },
  
 ];
 

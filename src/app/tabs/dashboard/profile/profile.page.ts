@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { AlertController, LoadingController, NavController } from '@ionic/angular';
+import { LoaderService } from 'src/app/services/loader.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,7 +11,11 @@ import { NavController } from '@ionic/angular';
 export class ProfilePage implements OnInit {
   processing:boolean;
   uploadImage: any;
-  constructor(public navCtrl: NavController) {
+  credentials: any;
+  constructor(
+    public navCtrl: NavController, 
+    public loaderservice: LoaderService,
+    public loadingController: LoadingController) {
 
   }
  presentActionSheet(fileLoader) {
@@ -96,12 +102,9 @@ export class ProfilePage implements OnInit {
         case 8: ctx.transform(0, -1, 1, 0, 0, width); break;
         default: break;
       }
+       ctx.drawImage(img, 0, 0);
 
-      // draw image
-      ctx.drawImage(img, 0, 0);
-
-      // export base64
-      callback(canvas.toDataURL());
+       callback(canvas.toDataURL());
     };
 
     img.src = srcBase64;
@@ -109,8 +112,9 @@ export class ProfilePage implements OnInit {
   removePic() {
     this.uploadImage = null;
   }
-  ngOnInit() {
-  }
+ngOnInit() {
+  this.loaderservice.showLoader();
+}
 }
 
 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
+import { LoaderService } from 'src/app/services/loader.service';
 import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
@@ -15,15 +17,28 @@ modules: any[];
 
   constructor(private fb: FormBuilder,
     private toast: ToastService,
-    private router: Router) { }
+    public loaderservice: LoaderService) { }
 
 ngOnInit() {
+this.loaderservice.showLoader();
 this.changepassword = this.fb.group({
   login_id: ['', [Validators.required, Validators.minLength(6)]],
   login_id1: ['', [Validators.required, Validators.minLength(6)]],
   login_id2: ['', [Validators.required, Validators.minLength(6)]]
 });
 }
+// autoHideShow() {
+//   this.loadingCtrl.create({
+//     message: 'Loading...',
+//     duration: 1000, 
+//     translucent: true
+//   }).then((res) => {
+//     res.present();
+//     res.onDidDismiss().then((res) => {
+//       console.log('Loader closed', res);
+//     });
+//   });
+// } 
 submitForm(){
 console.log("Submitform");
 this.isSubmitted = true;

@@ -12,7 +12,7 @@ export class PhotoService {
   public photos: UserPhoto[] = []
   private PHOTO_STORAGE: string = 'photo';
   constructor(private Actionsheet : ActionSheetController) { 
-    this.deletePicture;
+    //this.deletePicture;
    }
   
   private async savePicture(photo: Photo){
@@ -73,22 +73,22 @@ export class PhotoService {
        photo.webviewPath = 'data:image/jpeg;base64, ${readFile.data}';
     }
   }
-  public async deletePicture(photo: UserPhoto, position: number) {
-     this.photos.splice(position, 1);
+  // public async deletePicture(photo: UserPhoto, position: number) {
+  //    this.photos.splice(position, 1);
   
-    //   Preferences.set({
-    //   key: this.PHOTO_STORAGE,
-    //   value: JSON.stringify(this.photos)
-    // });
+  //   //   Preferences.set({
+  //   //   key: this.PHOTO_STORAGE,
+  //   //   value: JSON.stringify(this.photos)
+  //   // });
   
-     const filename = photo.filepath
-                        .substr(photo.filepath.lastIndexOf('/') + 1);
+  //    const filename = photo.filepath
+  //                       .substr(photo.filepath.lastIndexOf('/') + 1);
   
-    await Filesystem.deleteFile({
-      path: filename,
-      directory: Directory.Data
-    });
-  }
+  //   await Filesystem.deleteFile({
+  //     path: filename,
+  //     directory: Directory.Data
+  //   });
+  // }
 }
 export interface UserPhoto {
   filepath: string;

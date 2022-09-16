@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, LoadingController } from '@ionic/angular';
+import { LoaderService } from 'src/app/services/loader.service';
 import { PhotoService, UserPhoto } from 'src/app/services/photo.service';
 
  @Component({
@@ -10,33 +11,25 @@ import { PhotoService, UserPhoto } from 'src/app/services/photo.service';
 export class CameraPage implements OnInit {
 
   constructor(public photoService: PhotoService,
-    public actionSheetController: ActionSheetController) { }
+    public actionSheetController: ActionSheetController, public loaderservice: LoaderService) { }
 
   async ngOnInit(){
+    this.loaderservice.showLoader();
     await this.photoService.loadSaved();
   }
-
+  // autoHideShow() {
+  //   this.loadingController.create({
+  //     message: 'Loading...',
+  //     duration: 2000, 
+  //     translucent: true
+  //   }).then((res) => {
+  //     res.present();
+  //     res.onDidDismiss().then((res) => {
+  //       console.log('Loader closed', res);
+  //     });
+  //   });
+  // } 
   addPhotoToGallery(){
     this.photoService.addNewToGallery();
   }
-  public async showActionSheet(photo: UserPhoto, position: number) {
-    const actionSheet = await this.actionSheetController.create({
-      header: 'Photos',
-      buttons: [{
-        text: 'Delete',
-        role: 'destructive',
-        icon: 'trash',
-        handler: () => {
-          this.photoService.deletePicture(photo, position);
-        }
-      }, {
-        text: 'Cancel',
-        icon: 'close',
-        role: 'cancel',
-        handler: () => {
-           }
-      }]
-    });
-    await actionSheet.present();
   }
-}
