@@ -10,14 +10,14 @@ import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
 import { SplashScreen } from '@awesome-cordova-plugins/splash-screen/ngx';
 import { NativeGeocoder } from '@awesome-cordova-plugins/native-geocoder/ngx';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
-import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { LoadingController } from '@ionic/angular';
+import { TabsserviceService } from './services/tabsservice.service';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(), 
+    IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule
   ],
@@ -27,8 +27,8 @@ import { LoadingController } from '@ionic/angular';
     Platform,
     StatusBar,
     SplashScreen,
-    LocalNotifications,
     LoadingController,
+    TabsserviceService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

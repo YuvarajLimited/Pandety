@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { TabsserviceService } from './services/tabsservice.service';
 
-@Component({
+ @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  new_activities: any;
-  new_message: any;
-  constructor(private router: Router) { }
+  myTabBar: string;
+  constructor(private tabsservice: TabsserviceService) { }
 
- 
 }

@@ -1,6 +1,6 @@
 ion-tabs{
 	ion-fab {
-		margin-bottom: env(safe-area-inset-bottom); /* fix notch ios*/
+		margin-bottom: env(safe-area-inset-bottom);
 		ion-fab-button {
 			--box-shadow: none;
 		}
@@ -31,12 +31,12 @@ ion-tabs{
 			margin-left: 0px;
 			border-top-left-radius: 18px;
 		}
-		svg {    
+		svg {
 			width: 72px;
 			margin-top: 19px;
 			path{
 				fill:  var(--ion-color-light);
-			}		
+			}
 		}
 	}
 }

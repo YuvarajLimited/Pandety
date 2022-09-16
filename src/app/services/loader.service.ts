@@ -8,7 +8,7 @@ export class LoaderService {
 
   constructor( public loadingController: LoadingController) { }
   isLoading = false;
-  
+
   autoLoader() {
     this.loadingController.create({
       message: 'Loading...',
@@ -19,7 +19,7 @@ export class LoaderService {
         console.log('Loader dismissed', response);
       });
     });
-  }  
+  }
 /// another code
   async showHideAutoLoader() {
     const loading = await this.loadingController.create({
@@ -44,8 +44,7 @@ export class LoaderService {
       })
     });
   }
-  // Hide the loader if already created otherwise return error
-  async hideLoader() {
+   async hideLoader() {
     this.isLoading = false;
     return await this.loadingController.dismiss()
     .then(() => {
