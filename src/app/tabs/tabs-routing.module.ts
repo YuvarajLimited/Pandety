@@ -34,6 +34,10 @@ const routes: Routes = [
       }
     ]
   },
+  {
+    path: 'textimage',
+    loadChildren: () => import('./textimage/textimage.module').then( m => m.TextimagePageModule)
+  },
 ];
  
 @NgModule({

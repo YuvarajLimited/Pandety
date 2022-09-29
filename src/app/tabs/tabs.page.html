@@ -1,32 +1,57 @@
 <ion-app>
-  <ion-menu side="start" type="overlay" drag-content="false" menuId="first" contentId="content1">
-      <ion-header>
-        <ion-toolbar color="">
-          <ion-title>ᴡᴇʟᴄᴏᴍᴇ</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content>
-        <ion-list *ngFor="let pages of navigate">
+  <ion-menu side="start" type="overlay" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar color="">
+        <ion-title>ᴡᴇʟᴄᴏᴍᴇ</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list *ngFor="let pages of navigate">
         <ion-menu-toggle auto-hide="true">
           <ion-item [routerLink]="pages.url">
-              <ion-icon name="grid" [name]="pages.icon" slot="start"></ion-icon>
-                 {{pages.title}} 
+            <ion-icon name="grid" [name]="pages.icon" slot="start"></ion-icon>
+            {{pages.title}}
           </ion-item>
         </ion-menu-toggle>
-        </ion-list>
-      </ion-content>
-      <div class="divider"></div>
-      <ion-item lines="full">
-        <ion-icon slot="start" name="moon"></ion-icon>
-        <ion-label>
-          Dark Mode
-         </ion-label>
-        <ion-toggle slot="end" [ngModel]="arkMode" (ionChange)="mode()"></ion-toggle>
-      </ion-item>
-      <ion-item menuClose (click)="logout()" class="foot-nav-item">
-        <ion-icon name="power"></ion-icon>
-        <ion-label class="sign-out-text">ꜱɪɢɴ ᴏᴜᴛ</ion-label>
-      </ion-item>
-    </ion-menu>
-    <ion-router-outlet id="content1"></ion-router-outlet>
-  </ion-app>
+      </ion-list>
+    </ion-content>
+    <div class="divider"></div>
+    <ion-item lines="full">
+      <ion-icon slot="start" name="moon"></ion-icon>
+      <ion-label>
+        Dark Mode
+      </ion-label>
+      <ion-toggle slot="end" [ngModel]="arkMode" (ionChange)="mode()"></ion-toggle>
+    </ion-item>
+    <ion-item menuClose (click)="logout()" class="foot-nav-item">
+      <ion-icon name="power"></ion-icon>
+      <ion-label class="sign-out-text">ꜱɪɢɴ ᴏᴜᴛ</ion-label>
+    </ion-item>
+  </ion-menu>
+  
+  <ion-router-outlet id="main"></ion-router-outlet>
+  <!-- tabs -->
+  <ion-tabs>
+    <ion-fab vertical="bottom" horizontal="center" translucent="true">
+      <ion-fab-button (click)="addPhotoToGallery()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <ion-tab-bar #myTabBar id="myTabBar" slot="bottom" class="ion-no-border">
+      <ion-tab-button [routerLink]="['/tabs']" routerLinkActive="router-link-active">
+        <ion-icon name="home"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button [routerLink]="['/tabs/location']" routerLinkActive="router-link-active" class="comments">
+        <ion-icon name="location"></ion-icon>
+        <!-- <ion-badge *ngIf="new_message">{{new_message}}</ion-badge> -->
+      </ion-tab-button>
+      <svg height="50" viewBox="0 0 100 50" width="100"  ><path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd"></path></svg>
+      <ion-tab-button [routerLink]="['/tabs/dashboard/pushnotfication']" routerLinkActive="router-link-active" class="notifs">
+        <ion-icon name="notifications"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button [routerLink]="['/tabs/profile']" routerLinkActive="router-link-active">
+        <ion-icon name="person"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-app>

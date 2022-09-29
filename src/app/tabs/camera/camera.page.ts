@@ -17,18 +17,6 @@ export class CameraPage implements OnInit {
     this.loaderservice.showLoader();
     await this.photoService.loadSaved();
   }
-  // autoHideShow() {
-  //   this.loadingController.create({
-  //     message: 'Loading...',
-  //     duration: 2000, 
-  //     translucent: true
-  //   }).then((res) => {
-  //     res.present();
-  //     res.onDidDismiss().then((res) => {
-  //       console.log('Loader closed', res);
-  //     });
-  //   });
-  // } 
   addPhotoToGallery(){
     this.photoService.addNewToGallery();
   }

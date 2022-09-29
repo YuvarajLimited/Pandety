@@ -21,12 +21,12 @@ export class TabsserviceService {
 
  public hideTabs() {
    const tabBar = document.getElementById('myTabBar');
-   if (tabBar.style.display !== 'none') tabBar.style.display = 'none';
+   //if (tabBar.style.display !== 'none') tabBar.style.display = 'none';
  }
 
  public showTabs() {
    const tabBar = document.getElementById('myTabBar');
-   if (tabBar.style.display !== 'flex') tabBar.style.display = 'flex';
+   //if (tabBar.style.display !== 'flex') tabBar.style.display = 'flex';
  }
 
  private navEvents() {

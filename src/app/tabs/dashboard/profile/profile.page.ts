@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AlertController, LoadingController, NavController } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { LoadingController, NavController } from '@ionic/angular';
 import { LoaderService } from 'src/app/services/loader.service';
-
+ 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',

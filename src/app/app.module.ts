@@ -19,8 +19,8 @@ import { TabsserviceService } from './services/tabsservice.service';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
-  ],
+    HttpClientModule,
+   ],
   providers: [
     NativeGeocoder,
     Geolocation,
@@ -29,7 +29,7 @@ import { TabsserviceService } from './services/tabsservice.service';
     SplashScreen,
     LoadingController,
     TabsserviceService,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

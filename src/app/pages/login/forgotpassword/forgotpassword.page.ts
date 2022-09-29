@@ -12,8 +12,7 @@ export class ForgotpasswordPage implements OnInit {
   forgotpassword: FormGroup
   isSubmitted = false;
   modules: any[];
-
-
+  
   constructor(private fb: FormBuilder,
               private toast: ToastService,
               public loaderservice: LoaderService) { }

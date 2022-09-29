@@ -5,7 +5,8 @@ import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
 import { AlertController, LoadingController, Platform } from '@ionic/angular';
 import { AuthenticationService } from '../services/authentication.service';
 import { LoaderService } from '../services/loader.service';
- 
+import { PhotoService } from '../services/photo.service';
+
 @Component({
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',
@@ -13,22 +14,28 @@ import { LoaderService } from '../services/loader.service';
 })
 export class TabsPage {
   navigate : any;
-  arkMode: boolean = true; 
+  arkMode: boolean = true;
   credentials: any;
+  showTabs: any
   constructor(private platform    : Platform,
               private splashScreen: SplashScreen,
               private statusBar   : StatusBar,
-              private router: Router, 
+              private router: Router,
               public loaderservice: LoaderService,
-              private authService: AuthenticationService) 
+              private authService: AuthenticationService,
+              public photoService: PhotoService)
               {
                 this.sideMenu();
                 this.initializeApp();
                 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
                 this.arkMode = prefersDark.matches;
               }
+              addPhotoToGallery(){
+                this.photoService.addNewToGallery();
+              }
               ngOnInit() {
                 this.loaderservice.showLoader();
+                this.photoService.loadSaved();
                }
   mode() {
     this.arkMode = !this.arkMode;
@@ -86,7 +93,7 @@ export class TabsPage {
         icon  : ""
       }
     ];
- 
+
   }
   async logout() {
     await this.authService.logout();

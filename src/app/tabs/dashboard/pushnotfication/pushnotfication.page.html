@@ -6,19 +6,10 @@
     </ion-buttons>
 </ion-toolbar>
 </ion-header>
- 
-<ion-content>
-  <ion-card>
-<ion-button (click)="single_notification()">
-  Single Notification
-</ion-button>
 
-<ion-button (click)="multi_notification()">
-  Multi Notifcations
-</ion-button>
 
-<ion-button (click)="delayed_notification()">
-  Delayed Notification
-</ion-button>
-  </ion-card>
+<ion-content [fullscreen]="true">
+  <ion-button (click)="scheduleBasic()" expand="block" fill="clear"> Schedule Basic</ion-button>
+  <ion-button (click)="repeatNotification()" expand="block" fill="clear"> Schedule Repeat without color</ion-button>
+  <ion-button (click)="scheduleAdvanced()" expand="block" fill="clear"> Schedule Advanced</ion-button>
 </ion-content>

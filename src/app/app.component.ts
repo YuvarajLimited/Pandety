@@ -7,7 +7,10 @@ import { TabsserviceService } from './services/tabsservice.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  myTabBar: string;
-  constructor(private tabsservice: TabsserviceService) { }
 
+   constructor(private tabsservice: TabsserviceService) { }
+
+   ngOnInit() {
+    this.tabsservice.hideTabs();
+   }
 }
