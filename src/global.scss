@@ -26,48 +26,48 @@
 @import "~@ionic/angular/css/flex-utils.css";
 @import '~animate.css/animate.min.css';
  
-.ion-color-white {
-    --ion-color-base: var(--ion-color-white);
-    --ion-color-base-rgb: var(--ion-color-white-rgb);
-    --ion-color-contrast: var(--ion-color-white-contrast);
-    --ion-color-contrast-rgb: var(--ion-color-white-contrast-rgb);
-    --ion-color-shade: var(--ion-color-white-shade);
-    --ion-color-tint: var(--ion-color-white-tint);
-  }
-  .ion-color-vibrant {
-    --ion-color-base: var(--ion-color-vibrant, #1A4B9C) !important;
-    --ion-color-base-rgb: var(--ion-color-vibrant-rgb, 6, 52, 154) !important;
-    --ion-color-contrast: var(--ion-color-vibrant-contrast, #fff) !important;
-    --ion-color-contrast-rgb: var(--ion-color-vibrant-contrast-rgb, 255, 255, 255) !important;
-    --ion-color-shade: var(--ion-color-vibrant-shade, #093FB3) !important;
-    --ion-color-tint: var(--ion-color-vibrant-tint, #2553B8) !important;
-  }
-  .primary-input {
-    background: aliceblue;
-    --padding-start: 10px !important;
-    color: #999999;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-  .login-modal {
-    --backdrop-opacity: 1;
-    backdrop-filter: blur(3px);
-    &::part(backdrop) {
-        background-color: #000;
-    }
-    &::part(handle) {
-        background: var(--ion-color-primary);
-        width: 150px;
-        height: 6px;
-    }
-    &::part(content) {
-        border-radius: 20px;
-        height: 50%;
-        box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 32%);
-    }
-  }
-  .transparent-modal .modal-wrapper {
-    --background: rgba(44, 39, 45, 0.7);
-}
+// .ion-color-white {
+//     --ion-color-base: var(--ion-color-white);
+//     --ion-color-base-rgb: var(--ion-color-white-rgb);
+//     --ion-color-contrast: var(--ion-color-white-contrast);
+//     --ion-color-contrast-rgb: var(--ion-color-white-contrast-rgb);
+//     --ion-color-shade: var(--ion-color-white-shade);
+//     --ion-color-tint: var(--ion-color-white-tint);
+//   }
+//   .ion-color-vibrant {
+//     --ion-color-base: var(--ion-color-vibrant, #1A4B9C) !important;
+//     --ion-color-base-rgb: var(--ion-color-vibrant-rgb, 6, 52, 154) !important;
+//     --ion-color-contrast: var(--ion-color-vibrant-contrast, #fff) !important;
+//     --ion-color-contrast-rgb: var(--ion-color-vibrant-contrast-rgb, 255, 255, 255) !important;
+//     --ion-color-shade: var(--ion-color-vibrant-shade, #093FB3) !important;
+//     --ion-color-tint: var(--ion-color-vibrant-tint, #2553B8) !important;
+//   }
+//   .primary-input {
+//     background: aliceblue;
+//     --padding-start: 10px !important;
+//     color: #999999;
+//     border-radius: 5px;
+//     margin-bottom: 10px;
+//   }
+//   .login-modal {
+//     --backdrop-opacity: 1;
+//     backdrop-filter: blur(3px);
+//     &::part(backdrop) {
+//         background-color: #000;
+//     }
+//     &::part(handle) {
+//         background: var(--ion-color-primary);
+//         width: 150px;
+//         height: 6px;
+//     }
+//     &::part(content) {
+//         border-radius: 20px;
+//         height: 50%;
+//         box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 32%);
+//     }
+//   }
+//   .transparent-modal .modal-wrapper {
+//     --background: rgba(44, 39, 45, 0.7);
+// }
 
  

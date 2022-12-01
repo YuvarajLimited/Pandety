@@ -1,16 +1,60 @@
 import { Component } from '@angular/core';
 import { TabsserviceService } from './services/tabsservice.service';
-
+import {
+   ActionPerformed,
+   PushNotificationSchema,
+   PushNotifications,
+   Token,
+ } from '@capacitor/push-notifications';
+ 
  @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  
+  constructor(private tabsservice: TabsserviceService) { }
 
-   constructor(private tabsservice: TabsserviceService) { }
+  ngOnInit() {
+     this.tabsservice.hideTabs();
+     console.log('Initializing HomePage');
 
-   ngOnInit() {
-    this.tabsservice.hideTabs();
+     PushNotifications.requestPermissions().then(result => {
+       if (result.receive === 'granted') {
+          PushNotifications.register();
+       } else {
+         console.log('warning');
+        }
+     });
+   
+     // On success, we should be able to receive notifications
+     PushNotifications.addListener('registration',
+       (token: Token) => {
+         console.log(token.value);
+         alert('Push registration success, token: ' + token.value);
+       }
+     );
+   
+     // Some issue with our setup and push will not work
+     PushNotifications.addListener('registrationError',
+       (error: any) => {
+         alert('Error on registration: ' + JSON.stringify(error));
+       }
+     );
+   
+     // Show us the notification payload if the app is open on our device
+     PushNotifications.addListener('pushNotificationReceived',
+       (notification: PushNotificationSchema) => {
+         alert('Push received: ' + JSON.stringify(notification));
+       }
+     );
+   
+     // Method called when tapping on a notification
+     PushNotifications.addListener('pushNotificationActionPerformed',
+       (notification: ActionPerformed) => {
+         alert('Push action performed: ' + JSON.stringify(notification));
+       }
+     );
    }
-}
+  }

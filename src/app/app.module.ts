@@ -8,8 +8,6 @@ import { AppComponent } from './app.component';
 import { Platform } from '@ionic/angular';
 import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
 import { SplashScreen } from '@awesome-cordova-plugins/splash-screen/ngx';
-import { NativeGeocoder } from '@awesome-cordova-plugins/native-geocoder/ngx';
-import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 import { LoadingController } from '@ionic/angular';
 import { TabsserviceService } from './services/tabsservice.service';
 
@@ -22,7 +20,6 @@ import { TabsserviceService } from './services/tabsservice.service';
     HttpClientModule,
    ],
   providers: [
-    NativeGeocoder,
     Geolocation,
     Platform,
     StatusBar,

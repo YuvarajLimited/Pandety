@@ -21,7 +21,7 @@
       <ion-label>
         Dark Mode
       </ion-label>
-      <ion-toggle slot="end" [ngModel]="arkMode" (ionChange)="mode()"></ion-toggle>
+      <ion-toggle [ngModel]="darkMode" (ionChange)="mode()" color="dark"></ion-toggle> 
     </ion-item>
     <ion-item menuClose (click)="logout()" class="foot-nav-item">
       <ion-icon name="power"></ion-icon>
@@ -31,7 +31,7 @@
   
   <ion-router-outlet id="main"></ion-router-outlet>
   <!-- tabs -->
-  <ion-tabs>
+  <!-- <ion-tabs>
     <ion-fab vertical="bottom" horizontal="center" translucent="true">
       <ion-fab-button (click)="addPhotoToGallery()">
         <ion-icon name="camera"></ion-icon>
@@ -42,9 +42,9 @@
         <ion-icon name="home"></ion-icon>
       </ion-tab-button>
       <ion-tab-button [routerLink]="['/tabs/location']" routerLinkActive="router-link-active" class="comments">
-        <ion-icon name="location"></ion-icon>
+        <ion-icon name="location"></ion-icon> -->
         <!-- <ion-badge *ngIf="new_message">{{new_message}}</ion-badge> -->
-      </ion-tab-button>
+      <!-- </ion-tab-button>
       <svg height="50" viewBox="0 0 100 50" width="100"  ><path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd"></path></svg>
       <ion-tab-button [routerLink]="['/tabs/dashboard/pushnotfication']" routerLinkActive="router-link-active" class="notifs">
         <ion-icon name="notifications"></ion-icon>
@@ -53,5 +53,30 @@
         <ion-icon name="person"></ion-icon>
       </ion-tab-button>
     </ion-tab-bar>
-  </ion-tabs>
+  </ion-tabs> -->
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+
+      <ion-tab-button [routerLink]="['/tabs']" routerLinkActive="router-link-active" layout="icon-top">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Home</ion-label>
+      </ion-tab-button>
+      
+      <ion-tab-button [routerLink]="['/tabs/camera']" routerLinkActive="router-link-active"  layout="icon-top">
+        <ion-icon name="camera"></ion-icon>
+        <ion-label>Camera</ion-label>
+      </ion-tab-button>
+   
+      <ion-tab-button [routerLink]="['/tabs/location']" routerLinkActive="router-link-active" layout="icon-top">
+        <ion-icon name="location"></ion-icon>
+        <ion-label>Groups</ion-label>
+      </ion-tab-button>
+      
+      <ion-tab-button [routerLink]="['/tabs/profile']" routerLinkActive="router-link-active"layout="icon-top">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>Profile</ion-label>
+    </ion-tab-button>
+      
+  </ion-tab-bar>
+</ion-tabs>
 </ion-app>

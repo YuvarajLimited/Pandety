@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SplashScreen } from '@awesome-cordova-plugins/splash-screen/ngx';
 import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
-import { AlertController, LoadingController, Platform } from '@ionic/angular';
+import { Platform } from '@ionic/angular';
 import { AuthenticationService } from '../services/authentication.service';
 import { LoaderService } from '../services/loader.service';
 import { PhotoService } from '../services/photo.service';
@@ -13,13 +13,15 @@ import { PhotoService } from '../services/photo.service';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
+
   navigate : any;
-  arkMode: boolean = true;
+  darkMode: boolean = true;
   credentials: any;
-  showTabs: any
-  constructor(private platform    : Platform,
+  showTabs: any;
+
+  constructor(private platform: Platform,
               private splashScreen: SplashScreen,
-              private statusBar   : StatusBar,
+              private statusBar: StatusBar,
               private router: Router,
               public loaderservice: LoaderService,
               private authService: AuthenticationService,
@@ -28,7 +30,7 @@ export class TabsPage {
                 this.sideMenu();
                 this.initializeApp();
                 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-                this.arkMode = prefersDark.matches;
+                this.darkMode = prefersDark.matches;
               }
               addPhotoToGallery(){
                 this.photoService.addNewToGallery();
@@ -38,7 +40,7 @@ export class TabsPage {
                 this.photoService.loadSaved();
                }
   mode() {
-    this.arkMode = !this.arkMode;
+    this.darkMode = !this.darkMode;
     document.body.classList.toggle('dark');
    }
 

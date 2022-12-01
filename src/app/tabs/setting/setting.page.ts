@@ -11,21 +11,11 @@ export class SettingPage implements OnInit {
   searchBar: any;
   isLoading: boolean;
   restaurants: any;
-  constructor(public loadingController: LoadingController, public loaderservice: LoaderService) { }
-  // showLoader() {
-  //   this.loadingController.create({
-  //     message: 'Loading...',
-  //     showBackdrop: false,
-  //     spinner: "lines-small",
-  //     duration: 1000, 
-  //     translucent: true
-  //   }).then((res) => {
-  //     res.present();
-  //     res.onDidDismiss().then((res) => {
-  //       console.log('Loader closed', res);
-  //     });
-  //   });
-  // }
+
+  constructor(public loadingController: LoadingController, public loaderservice: LoaderService) { 
+    
+  }
+
   ngOnInit() {
     this.loaderservice.showLoader();
   }

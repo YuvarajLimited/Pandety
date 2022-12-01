@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
 import { LoaderService } from 'src/app/services/loader.service';
 import { ToastService } from 'src/app/services/toast.service';
 
@@ -27,18 +25,7 @@ this.changepassword = this.fb.group({
   login_id2: ['', [Validators.required, Validators.minLength(6)]]
 });
 }
-// autoHideShow() {
-//   this.loadingCtrl.create({
-//     message: 'Loading...',
-//     duration: 1000, 
-//     translucent: true
-//   }).then((res) => {
-//     res.present();
-//     res.onDidDismiss().then((res) => {
-//       console.log('Loader closed', res);
-//     });
-//   });
-// } 
+
 submitForm(){
 console.log("Submitform");
 this.isSubmitted = true;
@@ -61,12 +48,12 @@ if(res == true)
 }
 else{
   this.toast.dangerToast('Failed Please try again');
-}
-}
-);
-}
+        }
+      }
+    );
+  } 
 }
 resetForm(){
 this.changepassword.reset()
-}
+    }
 }

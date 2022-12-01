@@ -24,8 +24,7 @@ export class ForgotpasswordPage implements OnInit {
     });
   }
   submitForm(){
-    console.log("Submitform");
-    this.isSubmitted = true;
+     this.isSubmitted = true;
     if (!this.forgotpassword.valid) {
       console.log('Please provide all the required values!')
       this.toast.dangerToast('Please provide all the required values!');
